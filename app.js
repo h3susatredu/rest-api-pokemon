@@ -1,5 +1,7 @@
-// Työmuistissa on lista Pokemoneja. Tähän haetaan dataa localStoragesta ja/tai APIsta, riippuen tilanteesta.
+// Työmuistissa on lista Pokemoneja. Tähän haetaan dataa localStoragesta ja/tai APIsta, riippuen tilanteesta. Aluksi tyhjä.
 var pokemonList = [];
+// Luodaan yksittäistä käsiteltävää pokemonia varten muuttuja, joka on aluksi tyhjä.
+var handledPokemon = null;
 
 function searchByText() {
     // haetaan käyttäjän syöttämä hakutermi searcText-muuttujaan
@@ -19,10 +21,13 @@ function checkLocalStorage(searchText) {
     pokemonList = JSON.parse(localStorage.getItem("pokemonList"));
     // Huom: for of -luuppi. Normaali for-luuppikin toimisi.
     for (const pokemon of pokemonList) {
-        console.log(pokemon.name);
         // Jos löytyy, käytetään löydettyä dataa localStoragesta
         if(pokemon.name === searchText) {
             console.log("MATCH!! OSUMA!! LÖYTYI!!")
+            // Tallennetaan löytyneen pokemonin data selaimen välimuistiin handledPokemon-muuttujaan
+            handledPokemon = pokemon;
+            // TODO: näytetään handledPokemonin tiedot HTML-sivulla
+            displayPokemon(handledPokemon);
             return;
         }
         // Jos ei löydy, tehdään API-kutsu
@@ -41,4 +46,9 @@ async function getDataFromAPI(searchText) {
     pokemonList.push(jsonData);
     // Tallennetaan välimuistissa oleva pokemonList localStorageen
     localStorage.setItem("pokemonList", JSON.stringify(pokemonList));
+}
+
+
+function displayPokemon(pokemon) {
+    console.log("Displaying:" + pokemon.name);
 }
