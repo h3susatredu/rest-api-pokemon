@@ -51,4 +51,6 @@ async function getDataFromAPI(searchText) {
 
 function displayPokemon(pokemon) {
     console.log("Displaying:" + pokemon.name);
+
+    document.writeln(pokemon.name);
 }
