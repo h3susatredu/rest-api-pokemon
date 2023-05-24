@@ -1,0 +1,13 @@
+When the search field text value is updated by the user, the page shows automatically a list of all Pokemon that match the text value.
+
+    "pika" --> lists pikachu
+    "p" --> all the pokemon whose name starts with letter p
+
+    Tip: Search for "oninput HTML event" call: https://www.w3schools.com/jsref/event_oninput.asp
+
+----
+
+"All Pokemon" -view, that displays a list of all 1281 Pokemon, at least with the name of each one. When user clicks on one of them, they are shown a view with more detailed information of that Pokemon.
+
+---- 
+

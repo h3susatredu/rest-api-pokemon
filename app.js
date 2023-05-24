@@ -30,7 +30,7 @@ function searchByText() {
 
     // jos tekstikentässä ei ole mitään, yritetään hakea kaikki 1281 pokemonia, ensin localStoragesta, sitten APIsta
     if (searchText == "") {
-
+        getAllPokemonData();
     }
     else {
         // jos tekstikentässä on tekstiä, aletaan hakea yksittäistä pokemonia sillä nimellä,
@@ -92,17 +92,19 @@ async function getDataFromAPI(searchText) {
     // näytetään apista haettu pokemon sivulla
     displayPokemon(jsonData);
     // lisätään näytettävä pokemon näytettävien pokemonien listaan
-    displayList.push(pokemon);
+    displayList.push(jsonData);
     localStorage.setItem("displayList", JSON.stringify(displayList));
 }
 
-async function getAllPokemonData() {
-    let allPokemonRequest = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281";
 
-    // TODO: tee tähän funktioon API-kutsu, jossa pyydetään GET-pyynnöllä
-    // allPokemnoRequest -url, ja laitetaan vastauksesta löytyvä data talteen
-    // data on lista 1281:sta pokemonista, joista näkyy nimi ja pokemonin oma url
-    // Katso mallia ylemmän funktion alkuosasta
+// TODO: tee tähän funktioon API-kutsu, jossa pyydetään GET-pyynnöllä
+// allPokemnoRequest -url, ja laitetaan vastauksesta löytyvä data talteen
+// data on lista 1281:sta pokemonista, joista näkyy nimi ja pokemonin oma url
+// Katso mallia ylemmän funktion alkuosasta
+async function getAllPokemonData() {
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281");
+    const jsonData = await response.json();
+    localStorage.setItem("allPokemonData", JSON.stringify(jsonData));
 }
 
 
