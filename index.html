@@ -9,13 +9,19 @@
 </head>
 <body>
     <div id="center">
-        <form>
-            <input type="text" id="search" placeholder="Type Pokemon name">
-            <input type="submit" value="Search" id="searchBtn">
-        </form>
-        <h1>You have searched for these Pokemon:</h1>
-        <div id="pokeList"></div>
-        <script src="app.js"></script>
+        <div id="left">
+            <!-- here goes a list of all pokemon names, later with links -->
+            <ol id="list"></ol>
+        </div>
+        <div id="right">
+            <form>
+                <input type="text" id="search" placeholder="Type Pokemon name">
+                <input type="submit" value="Search" id="searchBtn">
+            </form>
+            <h1>You have searched for these Pokemon:</h1>
+            <div id="pokeList"></div>
+            <script src="app.js"></script>    
+        </div>
     </div>
 </body>
 </html>

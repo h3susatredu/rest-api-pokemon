@@ -9,5 +9,9 @@ When the search field text value is updated by the user, the page shows automati
 
 "All Pokemon" -view, that displays a list of all 1281 Pokemon, at least with the name of each one. When user clicks on one of them, they are shown a view with more detailed information of that Pokemon.
 
+    - create an ordered list from all the pokemon
+    - each list element contains just the name of the pokemon
+    - place the list on either side of the main page
+
 ---- 
 

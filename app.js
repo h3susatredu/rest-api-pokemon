@@ -102,9 +102,13 @@ async function getDataFromAPI(searchText) {
 // data on lista 1281:sta pokemonista, joista näkyy nimi ja pokemonin oma url
 // Katso mallia ylemmän funktion alkuosasta
 async function getAllPokemonData() {
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281");
-    const jsonData = await response.json();
-    localStorage.setItem("allPokemonData", JSON.stringify(jsonData));
+
+    if( localStorage.getItem("allPokemonData" == null)) {    
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281");
+        const jsonData = await response.json();
+        localStorage.setItem("allPokemonData", JSON.stringify(jsonData));
+    }
+    displayAllNamesList();
 }
 
 
@@ -120,4 +124,15 @@ function displayPokemon(pokemon) {
     `;
 
     document.getElementById("pokeList").appendChild(pokeBox);
+}
+
+
+function displayAllNamesList() {
+    const namesData = JSON.parse(localStorage.getItem("allPokemonData"));
+    let namesList = document.getElementById("list");
+
+    for (let i = 0; i < namesData.results.length; i++) {
+        namesList.innerHTML += `<li><a href="${namesData.results[i].url}">${namesData.results[i].name}</a></li>`;
+    }
+    // document.getElementById("left").appendChild(namesList);
 }

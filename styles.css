@@ -1,7 +1,17 @@
 #center {
     margin: auto;
     text-align: center;
-    width: 75%;
+    /* width: 75%; */
+    display: flex;
+    flex-direction: row;
+}
+
+#left {
+    width: 33%;
+}
+
+#right {
+    width: 66%;
 }
 
 .pokeTitle {
