@@ -1,3 +1,15 @@
+Top navigation
+Index.html page has elements at the top, that the user can click to change between views. 
+
+Views are changed by hiding and displaying different html elements on the same index.html page. We never actually leave the page.
+----
+Prevent duplicate search results from being displayed on Search page
+--> Don't show same Pokemon twice in the search results
+    --> check if displayList already contains searched pokemon, and if yes, do nothing
+    
+----
+
+Search autofill
 When the search field text value is updated by the user, the page shows automatically a list of all Pokemon that match the text value.
 
     "pika" --> lists pikachu

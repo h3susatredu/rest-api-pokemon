@@ -9,19 +9,41 @@
 </head>
 <body>
     <div id="center">
-        <div id="left">
+
+        <header>
+            <a href="#" id="homeLink" onclick="showHomeView()"><h1>My Pokemon Web App</h1></a>
+        </header>
+
+        <nav>
+            <a href="#" id="listLink" onclick="showListView()">All Pokemon</a>
+            <a href="#" id="searchLink" onclick="showSearchView()">Search</a>
+            <a href="#" id="favLink" onclick="showFavView()">Favorites</a>
+        </nav>
+
+        <div id="listView">
             <!-- here goes a list of all pokemon names, later with links -->
-            <ol id="list"></ol>
+            <ol id="list"><li>lkjsadflkjasdf</li></ol>
         </div>
-        <div id="right">
+
+        <div id="searchView">
             <form>
                 <input type="text" id="search" placeholder="Type Pokemon name">
                 <input type="submit" value="Search" id="searchBtn">
             </form>
-            <h1>You have searched for these Pokemon:</h1>
+            <h2>Your latest searches</h2>
             <div id="pokeList"></div>
-            <script src="app.js"></script>    
         </div>
+        
+        <div id="favView">
+            <p>This view will display my favorites. Currently there are none, since the feature does not exist yet.</p>
+        </div>
+        
+        <div id="homeView">
+            <p>This is my very first Pokemon web app.</p>
+        </div>    
     </div>
+
+    <script src="app.js"></script>  
+    <script src="navigation.js"></script>  
 </body>
 </html>
