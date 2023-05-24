@@ -1,7 +1,43 @@
+#center {
+    margin: auto;
+    text-align: center;
+    width: 75%;
+}
+
 .pokeTitle {
     font-size: 50px;
 }
 
 .pokeImage {
-    width: 250px;
+    width: 80%;
+}
+
+input {
+    padding: 20px;
+    margin-top: 20px;
+    font-size: larger;
+}
+
+
+
+
+
+  
+@media only screen and (min-width: 400px) and (max-width: 599px) {
+    body {
+        background-color: rgb(101, 177, 202);
+    }
+    .pokeImage {
+        width: 60%;
+    }
+}
+
+
+@media only screen and (min-width: 600px) {
+    body {
+      background-color: rgb(10, 95, 123);
+    }
+    .pokeImage {
+        width: 90%;
+    }
 }
