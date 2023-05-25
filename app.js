@@ -67,6 +67,16 @@ function checkLocalStorage(searchText) {
     }
     // jos localStoragesta löytyi pokemon..
     if(matchFound === true) {
+        
+        // jos displayListissä on jo haettu Pokemon, niin lopetetaan tähän
+        for (let i = 0; i < displayList.length; i++) {
+            if(displayList[i].name === searchText) {
+                // haettu pokemon on jo displayListissä, älä näytä uudelleen!
+                // lopetetaan tämän funktion (checkLocalStorage) suoritus tähän
+                return;
+            }
+        }
+
         // näytetään handledPokemonin tiedot HTML-sivulla
         displayPokemon(handledPokemon);
         // lisätään näytettävä pokemon näytettävien pokemonien listaan
