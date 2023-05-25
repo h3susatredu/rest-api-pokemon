@@ -1,15 +1,16 @@
-Top navigation
+Top navigation - DONE
 Index.html page has elements at the top, that the user can click to change between views. 
 
 Views are changed by hiding and displaying different html elements on the same index.html page. We never actually leave the page.
 ----
-Prevent duplicate search results from being displayed on Search page
+
+Prevent duplicate search results from being displayed on Search page - DONE
 --> Don't show same Pokemon twice in the search results
     --> check if displayList already contains searched pokemon, and if yes, do nothing
     
 ----
 
-Search autofill
+Search autofill - DONE
 When the search field text value is updated by the user, the page shows automatically a list of all Pokemon that match the text value.
 
     "pika" --> lists pikachu
@@ -19,7 +20,9 @@ When the search field text value is updated by the user, the page shows automati
 
 ----
 
-"All Pokemon" -view, that displays a list of all 1281 Pokemon, at least with the name of each one. When user clicks on one of them, they are shown a view with more detailed information of that Pokemon.
+"All Pokemon" -view - DONE
+
+A view with a list that displays a list of all 1281 Pokemon, at least with the name of each one. When user clicks on one of them, they are shown a view with more detailed information of that Pokemon.
 
     - create an ordered list from all the pokemon
     - each list element contains just the name of the pokemon
@@ -27,3 +30,18 @@ When the search field text value is updated by the user, the page shows automati
 
 ---- 
 
+Images for Pokemon in List view - IN PROGRESS
+
+Each Pokemon has a corresponding image next to it's name in the List view list.
+
+The challenge is to use Pokemon's name and url data to find an image of that Pokemon and to display it with the name.
+
+----
+
+"Lazy loading" for Images - NOT STARTED
+
+Make images (at least in long lists) load only when they become visible in the browser. 
+
+Try adding loading="lazy" attribute to img elements!
+
+----

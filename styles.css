@@ -31,6 +31,19 @@ nav {
     width: 80%;
 }
 
+#list {
+    display: flexbox;
+}
+
+.listedName {
+    font-size: larger;
+    list-style-position: inside;
+}
+
+.listedImage {
+    width: 200px;
+}
+
 input {
     padding: 20px;
     margin-top: 20px;

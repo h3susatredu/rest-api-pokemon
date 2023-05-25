@@ -143,10 +143,18 @@ function displayAllNamesList() {
     // haetaan kaikkien pokemonien nimi- ja url -data localStoragesta
     const namesData = JSON.parse(localStorage.getItem("allPokemonData"));
     
-    // ladataan kaikkien pokemonien nimet listView -näkymään
+    // ladataan kaikkien pokemonien nimet listView -näkymässä olevaan listaan
     let namesList = document.getElementById("list");
     for (let i = 0; i < namesData.results.length; i++) {
-        namesList.innerHTML += `<li><a href="${namesData.results[i].url}">${namesData.results[i].name}</a></li>`;
+
+        // otetaan pokemonin id-numero sen urlista (numero alkaa urlin 34. merkistä ja voi olla enintään 5 merkkiä pitkä)
+        let pokemonId = namesData.results[i].url.substr(34, 5);
+        // korvataan id-numerosta mahdollisesti löytyvä /-merkki tyhjällä ""
+        pokemonId = pokemonId.replace(/\/+$/, "");
+        // luodaan nyt siivotulla pokemon id-numerolla pokemonin sen kuvan osoite
+        const imgUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`
+        // lisätään listaan listaelementti, jossa on pokemonin urlista tehdyn linkin sisällä pokemonin nimi ja kuva
+        namesList.innerHTML += `<li class="listedName"><a href="${namesData.results[i].url}">${namesData.results[i].name} <img src="${imgUrl}" class="listedImage" /></a></li>`;
     }
 
     // ladataan searchViewin hakukentän dataListiin pokemonien nimet
