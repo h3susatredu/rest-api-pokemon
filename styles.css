@@ -10,7 +10,9 @@
 nav {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    padding: 0 20px 0 20px;
+    margin-bottom: 60px;
 }
 
 #left {
@@ -40,7 +42,7 @@ input {
 
 
   
-@media only screen and (min-width: 400px) and (max-width: 599px) {
+/* @media only screen and (min-width: 400px) and (max-width: 599px) {
     body {
         background-color: rgb(101, 177, 202);
     }
@@ -48,13 +50,14 @@ input {
         width: 60%;
     }
 }
-
+*/
 
 @media only screen and (min-width: 600px) {
     body {
       background-color: rgb(10, 95, 123);
     }
-    .pokeImage {
-        width: 90%;
+    #center {
+        width: 60%;
+        background-color: #fff;
     }
-}
+} 
