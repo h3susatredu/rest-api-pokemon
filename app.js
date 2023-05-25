@@ -116,7 +116,6 @@ async function getAllPokemonData() {
     if( localStorage.getItem("allPokemonData") == null) { 
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281");
         const jsonData = await response.json();
-        console.log(jsonData);
         localStorage.setItem("allPokemonData", JSON.stringify(jsonData));
     }
     displayAllNamesList();
@@ -141,11 +140,21 @@ function displayPokemon(pokemon) {
 
 
 function displayAllNamesList() {
+    // haetaan kaikkien pokemonien nimi- ja url -data localStoragesta
     const namesData = JSON.parse(localStorage.getItem("allPokemonData"));
+    
+    // ladataan kaikkien pokemonien nimet listView -näkymään
     let namesList = document.getElementById("list");
-
     for (let i = 0; i < namesData.results.length; i++) {
         namesList.innerHTML += `<li><a href="${namesData.results[i].url}">${namesData.results[i].name}</a></li>`;
     }
-    // document.getElementById("left").appendChild(namesList);
+
+    // ladataan searchViewin hakukentän dataListiin pokemonien nimet
+    const pokemonNames = namesData.results.map(pokemon => pokemon.name);
+    const dataList = document.getElementById("pokemonNames");
+    pokemonNames.forEach(name => {
+        const option = document.createElement("option");
+        option.value = name;
+        dataList.appendChild(option);
+    });
 }

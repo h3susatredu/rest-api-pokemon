@@ -29,7 +29,8 @@
         <!-- here user can search for pokemon by their name -->
         <div id="searchView">
             <form>
-                <input type="text" id="search" placeholder="Type Pokemon name">
+                <input type="text" id="search" list="pokemonNames" placeholder="Type Pokemon name">
+                <datalist id="pokemonNames"></datalist>
                 <input type="submit" value="Search" id="searchBtn">
             </form>
             <h2>Your latest searches</h2>
