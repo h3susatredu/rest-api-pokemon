@@ -4,7 +4,7 @@ var pokemonList = [];
 var handledPokemon = null;
 // Luodaan lista, jossa on muistissa näytillä olevat pokemonit.
 // Se tallennetaan myös localStorageen
-displayList = [];
+var displayList = [];
 
 
 // Liitetään Search-nappiin onclick-funktiokutsu täältä JS:n puolelta
@@ -30,7 +30,7 @@ function searchByText() {
 
     // jos tekstikentässä ei ole mitään, yritetään hakea kaikki 1281 pokemonia, ensin localStoragesta, sitten APIsta
     if (searchText == "") {
-        getAllPokemonData();
+        alert("Please type a Pokemon name to search.");
     }
     else {
         // jos tekstikentässä on tekstiä, aletaan hakea yksittäistä pokemonia sillä nimellä,
@@ -113,13 +113,16 @@ async function getDataFromAPI(searchText) {
 // Katso mallia ylemmän funktion alkuosasta
 async function getAllPokemonData() {
 
-    if( localStorage.getItem("allPokemonData" == null)) {    
+    if( localStorage.getItem("allPokemonData") == null) { 
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281");
         const jsonData = await response.json();
+        console.log(jsonData);
         localStorage.setItem("allPokemonData", JSON.stringify(jsonData));
     }
     displayAllNamesList();
 }
+
+getAllPokemonData();
 
 
 // lisää yksittäisen pokemonin tiedot näkymään sivulle
